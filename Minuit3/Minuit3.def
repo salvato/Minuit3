@@ -1,0 +1,6 @@
+; Minuit3.def : dichiara i parametri di modulo per la DLL.
+
+LIBRARY
+
+EXPORTS
+    ; Inserire qui le esportazioni esplicite

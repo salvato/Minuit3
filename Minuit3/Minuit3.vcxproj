@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{695C2925-7DFD-4DB2-B107-E3B4FA027383}</ProjectGuid>
+    <RootNamespace>Minuit3</RootNamespace>
+    <Keyword>MFCDLLProj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+    <UseOfMfc>Dynamic</UseOfMfc>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <TargetName>$(ProjectName)d</TargetName>
+    <OutDir>$(SolutionDir)\Distribution\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)\Distribution\</OutDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_AFXEXT;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ModuleDefinitionFile>.\Minuit3.def</ModuleDefinitionFile>
+      <IgnoreSpecificDefaultLibraries>msvcrt.lib</IgnoreSpecificDefaultLibraries>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0410</Culture>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_AFXEXT;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ModuleDefinitionFile>.\Minuit3.def</ModuleDefinitionFile>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <Midl>
+      <MkTypLibCompatible>false</MkTypLibCompatible>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </Midl>
+    <ResourceCompile>
+      <Culture>0x0410</Culture>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(IntDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="Minuit3.def" />
+    <None Include="ReadMe.txt" />
+    <None Include="res\Minuit3.rc2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Ask.cpp" />
+    <ClCompile Include="dllmain.cpp">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeader>
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</CompileAsManaged>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Minuit3.cpp" />
+    <ClCompile Include="mninit.cpp" />
+    <ClCompile Include="stampa.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Ask.h" />
+    <ClInclude Include="mninit.h" />
+    <ClInclude Include="Resource.h" />
+    <ClInclude Include="stampa.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Minuit3.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="obj\MNAMIN.obj" />
+    <Object Include="obj\MNBINS.obj" />
+    <Object Include="obj\Mncalf.obj" />
+    <Object Include="obj\MNCLER.obj" />
+    <Object Include="obj\MNCNTR.obj" />
+    <Object Include="obj\MNCOMD.obj" />
+    <Object Include="obj\MNCONT.obj" />
+    <Object Include="obj\MNCRCK.obj" />
+    <Object Include="obj\Mncros.obj" />
+    <Object Include="obj\MNCUVE.obj" />
+    <Object Include="obj\Mnderi.obj" />
+    <Object Include="obj\MNDXDI.obj" />
+    <Object Include="obj\MNEIG.obj" />
+    <Object Include="obj\MNEMAT.obj" />
+    <Object Include="obj\MNERRS.obj" />
+    <Object Include="obj\MNEVAL.obj" />
+    <Object Include="obj\MNEXCM.obj" />
+    <Object Include="obj\MNEXIN.obj" />
+    <Object Include="obj\MNFIXP.obj" />
+    <Object Include="obj\MNFREE.obj" />
+    <Object Include="obj\MNGRAD.obj" />
+    <Object Include="obj\MNHELP.obj" />
+    <Object Include="obj\MNHES1.obj" />
+    <Object Include="obj\MNHESS.obj" />
+    <Object Include="obj\MNIMPR.obj" />
+    <Object Include="obj\MNINEX.obj" />
+    <Object Include="obj\Mninit2.obj" />
+    <Object Include="obj\Mninpu.obj" />
+    <Object Include="obj\MNINTR.obj" />
+    <Object Include="obj\MNLIMS.obj" />
+    <Object Include="obj\MNLINE.obj" />
+    <Object Include="obj\MNMATU.obj" />
+    <Object Include="obj\MNMIGR.obj" />
+    <Object Include="obj\MNMNOS.obj" />
+    <Object Include="obj\MNMNOT.obj" />
+    <Object Include="obj\Mnparm.obj" />
+    <Object Include="obj\MNPARS.obj" />
+    <Object Include="obj\MNPFIT.obj" />
+    <Object Include="obj\MNPINT.obj" />
+    <Object Include="obj\MNPLOT.obj" />
+    <Object Include="obj\MNPOUT.obj" />
+    <Object Include="obj\MNPRIN.obj" />
+    <Object Include="obj\Mnpsdf.obj" />
+    <Object Include="obj\MNRAZZ.obj" />
+    <Object Include="obj\MNREAD.obj" />
+    <Object Include="obj\MNRN15.obj" />
+    <Object Include="obj\MNRSET.obj" />
+    <Object Include="obj\mnsave.obj" />
+    <Object Include="obj\MNSCAN.obj" />
+    <Object Include="obj\MNSEEK.obj" />
+    <Object Include="obj\MNSET.obj" />
+    <Object Include="obj\MNSETI.obj" />
+    <Object Include="obj\MNSIMP.obj" />
+    <Object Include="obj\MNSTAT.obj" />
+    <Object Include="obj\MNSTIN.obj" />
+    <Object Include="obj\MNTINY.obj" />
+    <Object Include="obj\MNUNPT.obj" />
+    <Object Include="obj\MNVERT.obj" />
+    <Object Include="obj\MNWARN.obj" />
+    <Object Include="obj\MNWERR.obj" />
+    <Object Include="obj\STAND.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="DFCONSOL.LIB" />
+    <Library Include="DFORMD.LIB" />
+    <Library Include="DFPORT.LIB" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
